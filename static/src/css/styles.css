@@ -1,0 +1,31 @@
+/*
+ * Hoja de estilos para el Módulo de Doble Precio
+ */
+
+/* NUEVO: Estilo para el precio principal que ve el usuario público */
+.o_wssp_public_price {
+    font-size: 1.9em;
+    font-weight: bolder; /* o 900 */
+}
+
+/* Contenedor principal para el precio sugerido (cuando el usuario está logueado) */
+.o_wssp_suggested_price_container {
+    font-size: 0.9em;
+}
+
+/* Etiqueta del precio del distribuidor (Ej: "Dist. VIP:") */
+.o_wssp_partner_price_label {
+    font-size: 0.9em;
+}
+
+/* Monto final del precio del distribuidor (el precio principal para el usuario logueado) */
+.o_wssp_partner_price_amount {
+    font-size: 1.9em;
+    font-weight: bolder;
+}
+
+/* Estilo para el precio tachado en el modo fallback */
+.o_wssp_fallback_del {
+    text-decoration: line-through;
+    white-space: nowrap;
+}

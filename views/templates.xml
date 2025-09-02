@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="product_price_suggested" inherit_id="website_sale.product_price" name="Suggested and Partner Price">
+        <xpath expr="." position="replace">
+            <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price d-inline-block">
+                <meta itemprop="priceCurrency" t-att-content="website.currency_id.name"/>
+                
+                <t t-set="combination_info" t-value="product._get_combination_info()"/>
+                <t t-set="suggested_info" t-value="product._get_suggested_price_info()"/>
+
+                <t t-if="website.enable_dual_price and not user_id.has_group('base.group_public') and suggested_info and suggested_info['price'] > combination_info['price']">
+                    
+                    <t t-set="partner_price" t-value="combination_info['price']"/>
+                    <t t-set="partner_pricelist_name" t-value="website.pricelist_id.name"/>
+                    
+                    <div class="oe_price_h4">
+                        <strong class="o_wssp_partner_price_label"><t t-esc="partner_pricelist_name"/>:</strong>
+                        <b class="o_wssp_partner_price_amount">
+                             <t t-esc="partner_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
+                        </b>
+                        <span itemprop="price" style="display:none;" t-esc="partner_price"/>
+                    </div>
+                    
+                    <div class="text-muted o_wssp_suggested_price_container">
+                        <t t-esc="suggested_info['name']"/>: 
+                        
+                        <t t-if="product.compare_list_price and product.compare_list_price > suggested_info['price']">
+                            <del class="text-danger me-1">
+                                <t t-esc="product.compare_list_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
+                            </del>
+                        </t>
+                        
+                        <span class="fw-bold">
+                            <t t-esc="suggested_info['price']" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
+                        </span>
+                    </div>
+                </t>
+                
+                <t t-else="">
+                    <b t-attf-class="oe_price text-nowrap {{ 'o_wssp_public_price' if user_id.has_group('base.group_public') or website.pricelist_id == website.suggested_pricelist_id else '' }}">
+                        <t t-esc="combination_info['price']" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                    </b>
+                    
+                    <del t-if="product.compare_list_price and product.compare_list_price > combination_info['price']" class="text-danger ms-2">
+                        <t t-esc="product.compare_list_price" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                    </del>
+                    
+                    <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>

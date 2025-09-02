@@ -1,0 +1,16 @@
+# Archivos compilados de Python
+*.pyc
+*.pyo
+
+# Carpetas de caché y temporales de Odoo
+__pycache__/
+*.sassc-cache/
+
+# Archivos de configuración de editores
+.vscode/
+.idea/
+*.swp
+
+# Archivos del sistema operativo
+.DS_Store
+Thumvs.db
