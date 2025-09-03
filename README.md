@@ -5,6 +5,7 @@ Este módulo mejora la experiencia de compra B2B en Odoo 16 Community Edition, p
 ## Características Principales ✨
 
 * **Vista de Doble Precio**: Muestra simultáneamente el precio de distribuidor y el precio de venta sugerido, creando una clara jerarquía visual.
+* **Cálculo de Margen de Ahorro**: Muestra automáticamente el ahorro del distribuidor (configurable para ser en monto absoluto o porcentaje) para reforzar el valor de la compra B2B.
 * **Totalmente Configurable**: Activa o desactiva la funcionalidad por sitio web y selecciona qué tarifa usar como "Precio Sugerido" directamente desde los Ajustes del Sitio Web.
 * **Control Manual de Ofertas**: Utiliza el campo nativo de Odoo **"Compare at Price"** en la ficha del producto para mostrar un precio tachado, dándote control total sobre las ofertas.
 * **Estilos Dinámicos**:
@@ -21,7 +22,10 @@ Este módulo mejora la experiencia de compra B2B en Odoo 16 Community Edition, p
 4.  Busca la sección **Vista de Doble Precio (B2B)**.
 5.  ✅ Activa la casilla **"Activar Vista de Doble Precio"**.
 6.  👇 En el campo **"Tarifa de Precio Sugerido"**, selecciona la lista de precios que actuará como precio de referencia para el público (ej. "Precio Sugerido de Venta").
-7.  Guarda los cambios.
+7.  ✅ Opcionalmente, activa **"Calcular Margen de Ahorro"** para mostrar la diferencia entre el precio sugerido y el del distribuidor.
+    * Puedes elegir el **formato predeterminado** (Porcentaje o Monto Absoluto).
+    * Puedes permitir que el usuario cambie el formato de visualización en la página del producto.
+8.  Guarda los cambios.
 
 ## Uso 🚀
 

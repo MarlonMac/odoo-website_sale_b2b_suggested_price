@@ -18,7 +18,7 @@
     'author': "Marlon Macario",
     'website': "https://link-gt.com",
     'category': 'Website/eCommerce',
-    'version': '16.0.1.0.0',
+    'version': '16.0.1.1.0',
     'license': 'LGPL-3',
     'depends': ['website_sale'],
     'data': [

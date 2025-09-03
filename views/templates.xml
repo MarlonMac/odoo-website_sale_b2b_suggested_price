@@ -11,6 +11,7 @@
                 <t t-if="website.enable_dual_price and not user_id.has_group('base.group_public') and suggested_info and suggested_info['price'] > combination_info['price']">
                     
                     <t t-set="partner_price" t-value="combination_info['price']"/>
+                    <t t-set="suggested_price" t-value="suggested_info['price']"/>
                     <t t-set="partner_pricelist_name" t-value="website.pricelist_id.name"/>
                     
                     <div class="oe_price_h4">
@@ -24,15 +25,39 @@
                     <div class="text-muted o_wssp_suggested_price_container">
                         <t t-esc="suggested_info['name']"/>: 
                         
-                        <t t-if="product.compare_list_price and product.compare_list_price > suggested_info['price']">
+                        <t t-if="product.compare_list_price and product.compare_list_price > suggested_price">
                             <del class="text-danger me-1">
                                 <t t-esc="product.compare_list_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
                             </del>
                         </t>
                         
                         <span class="fw-bold">
-                            <t t-esc="suggested_info['price']" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
+                            <t t-esc="suggested_price" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
                         </span>
+
+                        <t t-if="website.show_margin and suggested_price > partner_price">
+                            <t t-set="margin" t-value="suggested_price - partner_price"/>
+                            
+                            <t t-set="margin_percent" t-value="0"/>
+                            <t t-if="suggested_price > 0">
+                                <t t-set="margin_percent" t-value="round(margin * 100 / suggested_price, 2)"/>
+                            </t>
+                            
+                            <span class="ms-2 o_wssp_margin_container">
+                                (Ahorras:
+                                <t t-if="website.margin_display_type == 'absolute'">
+                                    <span class="fw-bold text-success">
+                                        <t t-esc="margin" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
+                                    </span>
+                                </t>
+                                <t t-else="">
+                                    <span class="fw-bold text-success">
+                                        <t t-esc="margin_percent"/>%
+                                    </span>
+                                </t>
+                                )
+                            </span>
+                        </t>
                     </div>
                 </t>
                 

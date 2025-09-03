@@ -2,6 +2,14 @@
 
 Todas las notas de cambios de este proyecto se documentarán en este archivo.
 
+## [1.1.0] - 2025-09-03
+
+### Added
+-   **[CARACTERÍSTICA]** Se agregó una opción en los ajustes del sitio web para mostrar el margen de ahorro del distribuidor.
+-   La visualización del margen se puede configurar para mostrarse como un monto absoluto o un porcentaje.
+-   Se añadió una opción para permitir (o no) que el usuario final cambie el modo de visualización del margen en la página del producto.
+-   Nuevas traducciones en la vista de configuración para las nuevas opciones.
+
 ## [1.0.0] - 2025-09-02
 
 ### Added

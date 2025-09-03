@@ -28,4 +28,10 @@
 .o_wssp_fallback_del {
     text-decoration: line-through;
     white-space: nowrap;
+    font-size: 1.9em;
+}
+
+/* NUEVO: Contenedor para el texto del margen de ahorro */
+.o_wssp_margin_container {
+    white-space: nowrap;
 }
