@@ -43,7 +43,7 @@
                             </t>
                             
                             <span class="ms-2 o_wssp_margin_container">
-                                (Ahorras:
+                                (Tu ganancia:
                                 <span t-attf-class="o_wssp_margin_amount fw-bold text-success {{'d-none' if website.margin_display_type == 'percentage' else ''}}">
                                     <t t-esc="margin" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
                                 </span>
