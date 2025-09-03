@@ -35,3 +35,18 @@
 .o_wssp_margin_container {
     white-space: nowrap;
 }
+
+/* NUEVO: Contenedor para el texto del margen de ahorro */
+.o_wssp_margin_container {
+    white-space: nowrap;
+}
+
+/* NUEVO: Estilo para el enlace que alterna la vista del margen */
+.o_wssp_margin_toggler {
+    text-decoration: none;
+    font-size: 0.9em;
+    color: var(--o-community-color);
+}
+.o_wssp_margin_toggler:hover {
+    color: var(--o-community-color-hover);
+}

@@ -18,7 +18,7 @@
     'author': "Marlon Macario",
     'website': "https://link-gt.com",
     'category': 'Website/eCommerce',
-    'version': '16.0.1.1.0',
+    'version': '16.0.1.1.0', 
     'license': 'LGPL-3',
     'depends': ['website_sale'],
     'data': [
@@ -28,6 +28,7 @@
     'assets': {
         'web.assets_frontend': [
             'website_sale_suggested_price/static/src/css/styles.css',
+            'website_sale_suggested_price/static/src/js/margin_toggle.js', 
         ],
     },
     'installable': True,

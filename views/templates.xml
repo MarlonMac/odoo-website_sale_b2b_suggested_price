@@ -37,23 +37,23 @@
 
                         <t t-if="website.show_margin and suggested_price > partner_price">
                             <t t-set="margin" t-value="suggested_price - partner_price"/>
-                            
                             <t t-set="margin_percent" t-value="0"/>
                             <t t-if="suggested_price > 0">
-                                <t t-set="margin_percent" t-value="round(margin * 100 / suggested_price, 2)"/>
+                                <t t-set="margin_percent" t-value="round(margin * 100 / partner_price, 2)"/>
                             </t>
                             
                             <span class="ms-2 o_wssp_margin_container">
                                 (Ahorras:
-                                <t t-if="website.margin_display_type == 'absolute'">
-                                    <span class="fw-bold text-success">
-                                        <t t-esc="margin" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
-                                    </span>
-                                </t>
-                                <t t-else="">
-                                    <span class="fw-bold text-success">
-                                        <t t-esc="margin_percent"/>%
-                                    </span>
+                                <span t-attf-class="o_wssp_margin_amount fw-bold text-success {{'d-none' if website.margin_display_type == 'percentage' else ''}}">
+                                    <t t-esc="margin" t-options='{"widget": "monetary", "display_currency": website.currency_id}'/>
+                                </span>
+                                <span t-attf-class="o_wssp_margin_percent fw-bold text-success {{'d-none' if website.margin_display_type == 'absolute' else ''}}">
+                                    <t t-esc="margin_percent"/>%
+                                </span>
+                                <t t-if="website.allow_user_margin_type_change">
+                                    <a href="#" class="o_wssp_margin_toggler ms-1" title="Cambiar formato">
+                                        <i class="fa fa-exchange"/>
+                                    </a>
                                 </t>
                                 )
                             </span>
